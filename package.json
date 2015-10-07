@@ -1,0 +1,24 @@
+{
+  "name": "us-web-design-standards",
+  "version": "0.8.0",
+  "description": "Open source UI components and visual style guide for U.S. government websites",
+  "main": "index.js",
+  "scripts": {
+    "jekyll-build": "bundle exec jekyll build",
+    "organize-release": "rm -rf dist && mkdir dist && cp -r assets/* dist && rm dist/css/styleguide.scss && cp _site/assets/css/main.css dist/css/uswds.css",
+    "zip-release": "cd ./dist && zip -r -X zip/uswds-v$npm_package_version.zip css _scss fonts img js -x \"*.DS_Store\" && cd ..",
+    "zip": "npm run jekyll-build && npm run organize-release && npm run zip-release && npm run jekyll-build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/18f/web-design-standards.git"
+  },
+  "style": "dist/css/uswds.css",
+  "author": "18F (https://18f.gsa.gov)",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/18f/web-design-standards/issues"
+  },
+  "homepage": "https://playbook.cio.gov/designstandards"
+}
